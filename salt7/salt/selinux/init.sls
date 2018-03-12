@@ -7,4 +7,5 @@ set-selinux-config:
 
 stop-selinux:
   cmd.run:
-   - name: setenforce 0
+   - name: "/usr/sbin/setenforce 0"
+   - unless: "/usr/sbin/getenforce | grep -i disabled"
